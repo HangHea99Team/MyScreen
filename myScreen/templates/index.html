@@ -26,10 +26,10 @@
         <!-- 헤더 - 페이지 머리 -->
         머리
         <div class="favorites_menu">
-            <button class="unset_style favorites_btn" onclick>
+            <button class="unset_style favorites_btn" onclick="showFavoritesLinks()">
                 즐겨찾기 메뉴
             </button>
-            <div class="favorites_list_wrap">
+            <div id="favorites_list_wrap" class="favorites_list_wrap d-none">
                 <ul class="favorites_add_wrap">
                     <input class="favorites_input_url" id="favorites_addUrl"/>
                     <button class="unset_style favorites_add_btn" onclick="saveLink()">
