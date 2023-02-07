@@ -1,0 +1,28 @@
+.name_box{
+    background-color: transparent;
+    color: white;
+    border: none;
+
+}
+.welcome{
+    font-size: 30px;
+    position: center;
+}
+.welcome_wrap{
+    margin: 0 auto;
+}
+.name_box_wrap{
+    margin: 0 auto;
+}
+.name_box2{
+    all: unset;
+    
+}
+
+.hidden{
+    display: none;
+}
+
+.showing{
+    display:block;
+}
