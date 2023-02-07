@@ -15,24 +15,24 @@
     <script src=".././static/js/common/common.js" type="application/javascript"></script>
     <script src="../static/js/common/weather.js"></script>
     <script src="../static/js/common/search.js"></script>
+    <script src="../static/js/common/dday.js"></script>
 </head>
 <body>
     <div class="loading"></div>
-    <header class="header_wrap">
+    <header class="header_wrap" style="margin-top: 50px; margin-left: 20px;">
         <!-- 헤더 - 페이지 머리 -->
         <div id="search_container">
             <form id="myForm" onsubmit="return false;" method="get">
                 <input id="keyword" class="keyword" type="text">
-                <button onclick="hey()" class="search-btn" type="button" class="btn btn-outline-success">
-                클릭</button>
-
+                <button onclick="hey()" class="search-btn" type="button" class="btn btn-outline-success">클릭</button>
                 <select id="engine" class="search-select" name="WhichSearch">
                     <option id="google" value="google">Google</option>
                     <option id="naver" value="naver">Naver</option>
                 </select>
             </form>
+            <h5 class="dDay"></h5>
+            <br>
         </div><br>
-        
         <div id="weather_container"> 
             <span></span><br>
             <span></span>
