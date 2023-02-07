@@ -5,6 +5,9 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href=".././static/css/common/reset.css">
     <link rel="stylesheet" type="text/css" href=".././static/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href=".././static/css/favorites/favorites.css">
+    <link rel="stylesheet" type="text/css" href=".././static/css/common/advice.css">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,12 +16,30 @@
             crossorigin="anonymous"></script>
 
     <script src=".././static/js/common/common.js" type="application/javascript"></script>
+    <script src=".././static/js/common/advice.js" type="application/javascript"></script>
+    <script src=".././static/js/favorites/favorites.js" type="application/javascript"></script>
+    
 </head>
 <body>
     <div class="loading"></div>
     <header class="header_wrap">
         <!-- 헤더 - 페이지 머리 -->
         머리
+        <div class="favorites_menu">
+            <button class="unset_style favorites_btn" onclick>
+                즐겨찾기 메뉴
+            </button>
+            <div class="favorites_list_wrap">
+                <ul class="favorites_add_wrap">
+                    <input class="favorites_input_url" id="favorites_addUrl"/>
+                    <button class="unset_style favorites_add_btn" onclick="saveLink()">
+                        +
+                    </button>
+                </ul>
+                <ul id="favorites_list" class="favorites_list">
+                </ul>
+            </div>
+        </div>
     </header>
     <section class="section_wrap">
         <!-- 섹션 - 페이지 중앙 -->
@@ -26,7 +47,13 @@
     </section>
     <footer class="footer_wrap">
         <!-- 푸터 - 페이지 하단 -->
-        하단
+<!--        랜덤 명언 완료-->
+        <div class = advice_wrap>
+                <div>
+                    <h1 class = advice-txt id="advice-text"></h1>
+                </div>
+        </div>
+
     </footer>
 </body>
 </html>
