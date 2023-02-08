@@ -1,8 +1,20 @@
 window.onload = function(){
-    const keyword = document.querySelector('.keyword')
+    const keywod = document.querySelector('.keyword')
     const engine = document.querySelector('.search-select')
-    // document.querySelector('.search-btn').addEventListener('click', hey)
+    const myForm = document.getElementById('myForm')
     document.getElementById('myForm').addEventListener('submit', hey)
+    
+    const searchToggle = document.querySelector('.search_toggle')
+    searchToggle.classList.toggle('visible')
+
+
+
+    // searchToggle.addEventListener('click', function(){
+    //     searchToggle.classList.toggle('flipped')
+    // })
+    // myForm.addEventListener('click', function(){
+    //     myForm.classList.add('active')
+    // })
 }
 function hey(){
     let searching = keyword.value

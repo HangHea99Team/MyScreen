@@ -21,8 +21,13 @@
     <div class="loading"></div>
     <header class="header_wrap" style="margin-top: 50px; margin-left: 20px;">
         <!-- 헤더 - 페이지 머리 -->
+        <!-- <div id="dDay_container" class="dDay_container">
+        </div> -->
         <div id="search_container">
-            <form id="myForm" onsubmit="return false;" method="get">
+            <img src="../static/img/logo.webp" alt="항해99">
+            <h3 class="dDay"></h3>
+            <button class="search_toggle visible" type="button">검색</button>
+            <form id="myForm" class="myForm" onsubmit="return false;">
                 <input id="keyword" class="keyword" type="text">
                 <button onclick="hey()" class="search-btn" type="button" class="btn btn-outline-success">클릭</button>
                 <select id="engine" class="search-select" name="WhichSearch">
@@ -30,8 +35,6 @@
                     <option id="naver" value="naver">Naver</option>
                 </select>
             </form>
-            <h5 class="dDay"></h5>
-            <br>
         </div><br>
         <div id="weather_container"> 
             <span></span><br>

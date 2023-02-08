@@ -17,8 +17,8 @@ const getDDay = () => {
     const seconds = Math.floor((distance % (1000*60))/1000);
 
     title.innerText = 
-        `항해99 13기의 항해 기간은
-        ${day}일 ${hours < 10 ? `0${hours}` : hours}시간  ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}초입니다.`
+        `${day}일차`
+        // ${hours < 10 ? `0${hours}` : hours}시간  ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}
 }
 
     const init = () => {
