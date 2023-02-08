@@ -1,7 +1,7 @@
 function showTodo() {
+
     document.getElementById('todo_wrap').classList.toggle('d-none')
 }
-
 function save_comment(e) {
     let todos = e.target.value;
     let code = e.code;
@@ -37,7 +37,7 @@ function save_comment(e) {
             let temp_html = `<li class="todo-item" >
                             <div class="todo-goal">
                                 <input onchange="todo_check(this, ${index})" id = 'todo_checkbox${index}' class = 'todo_checkbox'  type="checkbox"  />
-                                <label id = 'todolabel${index}'  for="todo_checkbox">${todolist[i]['todo']}</label>
+                                <label class="todolabel" id = 'todolabel${index}'  for="todo_checkbox">${todolist[i]['todo']}</label>
                                 <button onclick="delete_todo(${index.index}, this)" id = 'todo_delete' class="unset_style todo-goal-remove" >🗑</button>
                             </div>
                         </li>`
@@ -58,17 +58,19 @@ function delete_todo(index, elem){
 
 }
 function todo_check(checkbox,index){
+    console.log(index)
     // let tododata = JSON.stringify(todos)
     const labelId = '#todolabel'+ index
     const label = document.querySelector(labelId);
-    console.log(checkbox,label)
+    const el = document.getElementById(`todolabel${index}`)
+    console.log('el:',el)
+
 
     if (checkbox && label) {
-
         if (checkbox.checked) {
-            label.innerHTML = "완료!";
+            el.classList.replace('todolabelCheck')
         } else {
-            label.innerHTML = "미와료";
+            el.classList.replace('todolabel')
         }
 
     }
