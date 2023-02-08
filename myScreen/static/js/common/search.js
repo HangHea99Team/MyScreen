@@ -1,5 +1,5 @@
 window.onload = function(){
-    const keywod = document.querySelector('.keyword')
+    const keyword = document.querySelector('.keyword')
     const engine = document.querySelector('.search-select')
     const myForm = document.getElementById('myForm')
     document.getElementById('myForm').addEventListener('submit', hey)
