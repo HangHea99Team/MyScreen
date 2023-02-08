@@ -30,10 +30,10 @@
         <!-- 헤더 - 페이지 머리 -->
         머리
         <div class="favorites_menu">
-            <button class="unset_style favorites_btn" onclick>
+            <button class="unset_style favorites_btn" onclick="showFavoritesLinks()">
                 즐겨찾기 메뉴
             </button>
-            <div class="favorites_list_wrap">
+            <div id="favorites_list_wrap" class="favorites_list_wrap d-none">
                 <ul class="favorites_add_wrap">
                     <input class="favorites_input_url" id="favorites_addUrl"/>
                     <button class="unset_style favorites_add_btn" onclick="saveLink()">
@@ -51,13 +51,13 @@
     </section>
     <footer class="footer_wrap">
         <!-- 푸터 - 페이지 하단 -->
-<!--        랜덤 명언 완료-->
+        <!-- 랜덤 명언 완료-->
         <div class = advice_wrap>
                 <div>
                     <h1 class = advice-txt id="advice-text"></h1>
                 </div>
         </div>
-<!--        투두리스트-->
+        <!-- 투두리스트-->
         <div class="todo-menu">
             <button class="unset_style todo-showBtn" onclick="showTodo()">
                 Todo
@@ -72,8 +72,6 @@
                 </div>
             </div>
         </div>
-
-
     </footer>
 </body>
 </html>
