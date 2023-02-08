@@ -41,15 +41,5 @@ function showTodo() {
 
 window.onload = function () {
     // 이벤트 객체를 얻기 위해 addEventListener를 사용하는 것이 통상적입니다. 일부로 event인자를 넘겨주지 않아도 이벤트 정보를 인자로 넘겨줍니다.
-    document.getElementById('floatingInput').addEventListener("keypress", save_comment)
-}
-
-
-
-
-
-
-
-
-
+    document.getElementById('floatingInput').addEventListener("keypress", save_comment);
 }
