@@ -1,0 +1,41 @@
+.name_box{
+    background-color: transparent;
+    color: white;
+    border: none;
+
+}
+.welcome{
+    font-size: 30px;
+    position: center;
+}
+.welcome_wrap{
+    margin: 0 auto;
+}
+.name_box_wrap{
+    margin: 0 auto;
+}
+
+.name_box2{
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    BORDER-BOTTOM: teal 5px solid;
+    BORDER-LEFT: medium none;
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-SIZE: 15pt
+}
+
+.name_box2:focus{
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+
+.hidden{
+    display: none;
+}
+
+.showing{
+    display:block;
+}
