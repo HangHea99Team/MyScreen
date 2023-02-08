@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 # mongo DB database 생성 후 클러스터 url 입력
-client = MongoClient('mongodb+srv://test:sparta@cluster0.irxe3mh.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('')
 db = client.dbsparta
 
 # 저장 - 예시
