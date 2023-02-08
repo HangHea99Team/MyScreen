@@ -1,43 +1,48 @@
+
 function showTodo() {
     document.getElementById('todo_wrap').classList.toggle('d-none')
 }
 
 function save_comment(e) {
-    let todos = $('#floatingInput').val()
-
+    let todos = e.target.value;
     let code = e.code;
-    let local_list;
-    if (localStorage.getItem('todo').length > 0) {
-        local_list = JSON.parse(localStorage.getItem('todo'))
-    } else {
-        local_list = []
-    }
-    console.log(local_list)
-
-    localStorage.setItem("todo", JSON.stringify({'todolist': todos}))
-    let todolist_data = JSON.parse(localStorage.getItem('todo'))
-    local_list.push(todolist_data)
-    localStorage.setItem("todo", JSON.stringify(local_list))
-
-    for (let i = 0; i < local_list.length; i++) {
 
 
-        if (code == 'Enter') {
+    if (code == 'Enter') {
+        $('#todo-itemList').empty()
+
+        // 로컬스토리지 데이터 조회
+        let local_data = JSON.parse(localStorage.getItem('todo'))
+        // 객체 생성
+        let todo_list = {'todo': todos}
+
+        if (Boolean(local_data) && local_data.length > 0) {
+            todo_list.index = local_data.length;
+            local_data.push(todo_list)
+            localStorage.setItem('todo', JSON.stringify(local_data))
+        } else {
+            todo_list.index = 0;
+            localStorage.setItem('todo', JSON.stringify([todo_list]))
+        }
+
+        let todolist = JSON.parse(localStorage.getItem('todo'))
+        for (let i = 0; i < todolist.length; i++) {
             let temp_html = `<li class="todo-item" >
                             <div class="todo-goal">
-                                <input class="" type="checkbox" />
-                                <input class="unset_style todo-goal-text" type="text" placeholder="${todolist}" readonly/>
+                                <input id = 'todo_checkbox' class="" type="checkbox" />
+                                <input class="unset_style todo-goal-text" type="text" placeholder="${todolist[i]['todo']}" readonly/>
                                 <button class="unset_style todo-goal-modify">✍</button>
                                 <button class="unset_style todo-goal-remove">🗑</button>
                             </div>
                         </li>`
-
             $('#todo-itemList').append(temp_html)
-        } else {
-            return;
         }
+    } else {
+        return;
     }
 }
+
+
 
 
 
