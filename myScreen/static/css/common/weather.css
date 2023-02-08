@@ -1,0 +1,15 @@
+.header_wrap{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dDay_container{
+    width: 200px;
+    height: 100px;
+}
+
+
+button {
+    color: white;
+    background-color: black;
+}

@@ -33,6 +33,7 @@ body{
     background-color: transparent;
     opacity: 1;
     transition: opacity 1.2s ease-in-out;
+    padding: 0 20px;
 }
 
 .section_wrap{
@@ -55,4 +56,16 @@ body{
     height: 60px;
     color: #F3F3F3;
     padding: 0 20px;
+}
+
+.unset_style{
+    all:unset;
+}
+
+.d-none{
+    display: none;
+}
+
+.d-show{
+    display: block;
 }
