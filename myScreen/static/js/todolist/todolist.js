@@ -16,7 +16,9 @@ function save_comment(e) {
         let todo_list = {'todo': todos}
 
         if (Boolean(local_data) && local_data.length > 0) {
-            todo_list.index = local_data.length;
+            let indexList = local_data.map(item => item.index)
+            todo_list.index = Math.max(...indexList) + 1;
+
             local_data.push(todo_list)
             localStorage.setItem('todo', JSON.stringify(local_data))
         } else {
@@ -27,18 +29,20 @@ function save_comment(e) {
         let todolist = JSON.parse(localStorage.getItem('todo'))
         for (let i = 0; i < todolist.length; i++) {
             let index_name = todolist[i]
+            let index = index_name['index']
+            let todo_change = todolist[i]['todo']
+            console.log(todo_change)
+
 
             let temp_html = `<li class="todo-item" >
                             <div class="todo-goal">
-                                <input id = 'todo_checkbox' class="" type="checkbox" value=${index_name} />
-                                <input class="unset_style todo-goal-text" type="text" placeholder="${todolist[i]['todo']}" readonly/>
-                                <button class="unset_style todo-goal-modify">✍</button>
-                                <button onclick="delete_todo(${index_name.index}, this)" id = 'todo_delete' class="unset_style todo-goal-remove" value=${index_name}>🗑</button>
+                                <input onchange="todo_check(this, ${index})" id = 'todo_checkbox${index}' class = 'todo_checkbox'  type="checkbox"  />
+                                <label id = 'todolabel${index}'  for="todo_checkbox">${todolist[i]['todo']}</label>
+                                <button onclick="delete_todo(${index.index}, this)" id = 'todo_delete' class="unset_style todo-goal-remove" >🗑</button>
                             </div>
                         </li>`
+
             $('#todo-itemList').append(temp_html)
-
-
         }
     } else {
         return;
@@ -50,12 +54,25 @@ function delete_todo(index, elem){
     let local_data = JSON.parse(localStorage.getItem('todo')).filter(index_name => index_name.index != index_name);
     local_data.splice(index,1);
     localStorage.setItem('todo', JSON.stringify(local_data))
-
     console.log(local_data)
 
 }
+function todo_check(checkbox,index){
+    // let tododata = JSON.stringify(todos)
+    const labelId = '#todolabel'+ index
+    const label = document.querySelector(labelId);
+    console.log(checkbox,label)
 
+    if (checkbox && label) {
 
+        if (checkbox.checked) {
+            label.innerHTML = "완료!";
+        } else {
+            label.innerHTML = "미와료";
+        }
+
+    }
+}
 
 
 window.onload = function () {
