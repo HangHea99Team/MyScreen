@@ -49,11 +49,11 @@
                 </select>
             </form>
         </div><br>
-        <div id="weather_container"> 
+        <div id="weather_container">
             <span></span><br>
             <span></span>
         </div>
-        머리
+
         <div class="favorites_menu">
             <button class="unset_style favorites_btn" onclick="showFavoritesLinks()">
                 즐겨찾기 메뉴
@@ -103,12 +103,14 @@
                 <ul class="todo-itemList" id='todo-itemList'>
                 </ul>
                 <div class="todo-inputBox">
-                    <input placeholder="Write Your To-do" type="text" class="unset_style beauty-input"
+                    <input onkeypress="save_comment(event)" placeholder="Write Your To-do" type="text" class="unset_style beauty-input"
                            id="floatingInput">
                 </div>
             </div>
         </div>
     </footer>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
