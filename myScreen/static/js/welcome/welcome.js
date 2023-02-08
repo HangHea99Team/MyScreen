@@ -1,5 +1,5 @@
-const form=document.querySelector(".name_box");
-const inputName=form.querySelector("input"); //이름 입력받은거
+let form=document.querySelector(".name_box");
+let inputName=form.querySelector("input"); //이름 입력받은거
 const outputName=document.querySelector(".name_showing"); //저장된 애가 출력 될거
 
 
