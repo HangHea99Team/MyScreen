@@ -1,0 +1,115 @@
+.favorites_menu{
+    position: relative;
+}
+
+.favorites_btn{
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #F3F3F3;
+}
+
+.favorites_btn:hover{
+    background: #F3F3F3;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.favorites_list_wrap{
+    display: block;
+    top:50px;
+    right:0px;
+    width: 320px;
+    height: auto;
+    position: absolute;
+    background: rgba(500, 500, 500, 0.9);
+    color: #333333;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.favorites_list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+    margin: 0px;
+    gap: 10px 5%;
+}
+
+.favorites_item{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+    position: relative;
+}
+
+.favorites_item:hover{
+    background: #F9F9F9;
+}
+
+.favorites_item_btn{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favorites_item_btn img{
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+.favorites_item_btn p{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
+}
+
+.favorites_add_wrap{
+    display: flex;
+    padding: 0px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.favorites_input_url{
+    width: 90%;
+}
+
+.favorites_add_btn{
+    width: 10%;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.favorites_add_btn:hover{
+    background: #F9F9F9;
+}
+
+.favorites_remove_btn{
+    position: absolute;
+    top:-6px;
+    right:-6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+    background: #333333;
+    color: #FFFFFF;
+}
+
+.favorites_remove_btn:hover{
+    background: #E8E8E8;
+    color: #333333;
+}
