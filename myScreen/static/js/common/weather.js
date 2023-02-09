@@ -1,4 +1,5 @@
 const API_KEY = "37aa596bd428518cd7d353ef2a53b510"
+
 function onGeopass(position){
     console.log(position)
     const lat = position.coords.latitude;
@@ -7,8 +8,8 @@ function onGeopass(position){
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        const weather = document.querySelector('#weather_container span:first-child')
-        const city = document.querySelector('#weather_container span:last-child')
+        const city = document.querySelector('#weather_container span:first-child')
+        const weather = document.querySelector('#weather_container span:last-child')
         console.log(weather, city)
         city.innerText = data.name;
         weather.innerText = `${data.weather[0].main} / ${data.main.temp}`
