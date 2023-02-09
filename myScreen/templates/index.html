@@ -16,11 +16,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../static/css/common/weather.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/note/note.css">
 </head>
 <body>
     <div class="loading"></div>
@@ -81,7 +77,7 @@
         </div>
 
     </header>
-    <section class="section_wrap">
+    <div class="section_wrap">
         <!-- 섹션 - 페이지 중앙 -->
         <div class="clock_wrap">
             <p id="clock">00:00:00</p>
@@ -92,6 +88,18 @@
         <form class="name_box hidden">
             <input class="name_box2" type="text">
         </form>
+        
+        <h1 class="name_showing"></h1>
+
+        <div class="note-wrap">
+            <span class="input-group-text">메모장</span>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+        <div class="button_wrap">
+            <button class="save_button" onclick="save_data()">저장</button><button class="show_button" onclick="show_data()">불러오기</button>
+        </div>
+        <div id = "note_box">
+        </div>
     </div>
     <br>
     <div id="weather_container">
@@ -177,7 +185,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -185,8 +193,10 @@
     <script src=".././static/js/welcome/welcome.js" type="application/javascript"></script>
     <script src=".././static/js/clock/clock.js" type="application/javascript"></script>
     <script src=".././static/js/common/common.js" type="application/javascript"></script>
+    
     <script src=".././static/js/common/common.js" type="application/javascript"></script>
     <script src=".././static/js/common/advice.js" type="application/javascript"></script>
+    <script src=".././static/js/note/note.js" type="application/javascript"></script>
     
     <script src=".././static/js/common/unsplash.js" type="application/javascript"></script>
     <script src=".././static/js/auth/signup.js" type="application/javascript"></script>
