@@ -4,10 +4,9 @@ function showTodo() {
 }
 function save_comment(e) {
     let todos = e.target.value;
-    let code = e.code;
 
-
-    if (code == 'Enter') {
+    if (e.key == 'Enter') {
+        e.preventDefault();
         $('#todo-itemList').empty()
 
         // 로컬스토리지 데이터 조회
@@ -16,8 +15,11 @@ function save_comment(e) {
         let todo_list = {'todo': todos}
 
         if (Boolean(local_data) && local_data.length > 0) {
+            // todo_list.index = local_data.length;
+
             let indexList = local_data.map(item => item.index)
             todo_list.index = Math.max(...indexList) + 1;
+
 
             local_data.push(todo_list)
             localStorage.setItem('todo', JSON.stringify(local_data))
@@ -30,13 +32,13 @@ function save_comment(e) {
         for (let i = 0; i < todolist.length; i++) {
             let index_name = todolist[i]
             let index = index_name['index']
-            let todo_change = todolist[i]['todo']
-            console.log(todo_change)
+
+
 
 
             let temp_html = `<li class="todo-item" >
                             <div class="todo-goal">
-                                <input onchange="todo_check(this, ${index})" id = 'todo_checkbox${index}' class = 'todo_checkbox'  type="checkbox"  />
+                                <input onclick="todo_check(this, ${index})" id = 'todo_checkbox${index}' class = 'todo_checkbox'  type="checkbox"  />
                                 <label class="todolabel" id = 'todolabel${index}'  for="todo_checkbox">${todolist[i]['todo']}</label>
                                 <button onclick="delete_todo(${index.index}, this)" id = 'todo_delete' class="unset_style todo-goal-remove" >🗑</button>
                             </div>
@@ -59,11 +61,10 @@ function delete_todo(index, elem){
 }
 function todo_check(checkbox,index){
     console.log(index)
-    // let tododata = JSON.stringify(todos)
     const labelId = '#todolabel'+ index
     const label = document.querySelector(labelId);
     const el = document.getElementById(`todolabel${index}`)
-    console.log('el:',el)
+    // console.log('el:',el)
 
 
     if (checkbox && label) {
