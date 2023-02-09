@@ -2,11 +2,55 @@ import requests
 from flask import Flask, render_template, request, jsonify
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
+import certifi
+ca=certifi.where()
 
-# mongo DB database 생성 후 클러스터 url 입력
-# client = MongoClient('')
-# db = client.dbsparta
+client = MongoClient('mongodb+srv://test:sparta@cluster0.qli9s79.mongodb.net/Cluster0?retryWrites=true&w=majority',tlsCAFile=ca)
+db = client.dbsparta
 app = Flask(__name__)
+
+
+@app.route("/note", methods=["POST"])
+def web_note_post():
+    note_receive = request.form['note_give']
+    note_list = list(db.note.find({}, {'_id': False}))
+
+    if note_list == []:
+        count = 1
+        doc = {
+            'num': count,
+            'note': note_receive,
+            'done': 0,
+
+        }
+        db.note.insert_one(doc)
+
+        return jsonify({'msg': '내용 저장 완료'})
+    else:
+        max_list = note_list[len(note_list) - 1]
+        count = max_list['num']
+        max_count = count + 1
+
+        doc = {
+            'num': max_count,
+            'note': note_receive,
+            'done': 0,
+        }
+        db.note.insert_one(doc)
+        return jsonify({'msg': '내용 저장 완료'})
+
+@app.route("/note", methods=["GET"])
+def web_note_get():
+    note_list = list(db.note.find({}, {'_id': False}))
+    return jsonify({'notes': note_list})
+
+
+@app.route("/note/del", methods=["POST"])
+def note_delete():
+    num_receive = request.form['num_give']
+    db.note.delete_one({'num': int(num_receive)})
+    return jsonify({'msg': '삭제 완료'})
+
 
 @app.route('/')
 def home():

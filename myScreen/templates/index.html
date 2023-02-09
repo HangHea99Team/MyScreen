@@ -15,6 +15,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
           
     <link rel="stylesheet" href="../static/css/common/weather.css">
+    <link rel="stylesheet" href="../static/css/note/note.css">
 </head>
 <body>
     <div class="loading"></div>
@@ -68,6 +69,15 @@
         </form>
         <h1 class="name_showing"></h1>
 
+        <div class="note-wrap">
+            <span class="input-group-text">메모장</span>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+        </div>
+        <div class="button_wrap">
+            <button class="save_button" onclick="save_data()">저장</button><button class="show_button" onclick="show_data()">불러오기</button>
+        </div>
+        <div id = "note_box">
+        </div>
 
     </section>
     <footer class="footer_wrap">
@@ -114,5 +124,7 @@
     <script src=".././static/js/welcome/welcome.js" type="application/javascript"></script>
     <script src=".././static/js/clock/clock.js" type="application/javascript"></script>
     <script src=".././static/js/common/common.js" type="application/javascript"></script>
+    <script src=".././static/js/note/note.js" type="application/javascript"></script>
+
 </body>
 </html>
