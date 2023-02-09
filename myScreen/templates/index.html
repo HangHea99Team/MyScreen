@@ -20,25 +20,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <script src=".././static/js/common/common.js" type="application/javascript"></script>
-    
-    <script src="../static/js/common/weather.js"></script>
-    <script src="../static/js/common/search.js"></script>
-    <script src="../static/js/common/dday.js"></script>
-    
-
 </head>
 <body>
     <div class="loading"></div>
-    <header class="header_wrap" style="margin-top: 50px; margin-left: 20px;">
+    <header class="header_wrap">
         <!-- 헤더 - 페이지 머리 -->
-        <!-- <div id="dDay_container" class="dDay_container">
-        </div> -->
-        <div id="search_container">
-            <img src="../static/img/logo.webp" alt="항해99">
-            <h3 class="dDay"></h3>
-            <button class="search_toggle visible" type="button">검색</button>
-            <form id="myForm" class="myForm" onsubmit="return false;">
+        <!-- <div id="dDay_container" class="dDay_container"> </div> -->
+        <div id="search_container" >
+            <div class="headContainer-1">
+                <img class="logo1" src="../static/img/logo.webp" alt="항해99">
+                <h4 id="dDay" class="dDay"></h4><br>
+            </div>
+            <button onclick="showSearch()" id="showSearch" class="search_toggle">검색</button>
+            <button onclick="showImageBox()" class="search_toggle">이미지</button>
+            <form id="myForm" class="myForm d-none" onsubmit="return false;">
                 <input id="keyword" class="keyword" type="text">
                 <button onclick="hey()" class="search-btn" type="button" class="btn btn-outline-success">클릭</button>
                 <select id="engine" class="search-select" name="WhichSearch">
@@ -46,27 +41,44 @@
                     <option id="naver" value="naver">Naver</option>
                 </select>
             </form>
-        </div><br>
-        <div id="weather_container">
-            <span></span><br>
-            <span></span>
         </div>
-
-        <div class="favorites_menu">
-            <button class="unset_style favorites_btn" onclick="showFavoritesLinks()">
-                즐겨찾기 메뉴
-            </button>
-            <div id="favorites_list_wrap" class="favorites_list_wrap d-none">
-                <ul class="favorites_add_wrap">
-                    <input class="favorites_input_url" id="favorites_addUrl"/>
-                    <button class="unset_style favorites_add_btn" onclick="saveLink()">
-                        +
-                    </button>
-                </ul>
-                <ul id="favorites_list" class="favorites_list">
-                </ul>
+        <div class="image-container">
+            <div>
+                <table>
+                    <tr id="image-boxs" class="show-image">
+                        <td><img class="imgSize" src="" alt="" name="img"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="imageBox" class="d-none">
+                <button id="save-image" onclick="saveImage()">저장</button>
+                <button id="show-image" onclick="showImage()">보기</button>
+                <button id="show-image" onclick="eraseImage()">끄기</button>
+                <input id="image-url" type="text">
+            </div>
+        </div><br>
+        <div class="weather_menu">
+            <div id="weather_container" class="float-right"> 
+                <span></span><br>
+                <span></span>
+            </div>
+            <div class="favorites_menu">
+                <button class="unset_style favorites_btn" onclick="showFavoritesLinks()">
+                    즐겨찾기 메뉴
+                </button>
+                <div id="favorites_list_wrap" class="favorites_list_wrap d-none">
+                    <ul class="favorites_add_wrap">
+                        <input class="favorites_input_url" id="favorites_addUrl"/>
+                        <button class="unset_style favorites_add_btn" onclick="saveLink()">
+                            +
+                        </button>
+                    </ul>
+                    <ul id="favorites_list" class="favorites_list">
+                    </ul>
+                </div>
             </div>
         </div>
+
     </header>
     <section class="section_wrap">
         <!-- 섹션 - 페이지 중앙 -->
@@ -107,8 +119,7 @@
             </div>
         </div>
     </footer>
-
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -116,8 +127,15 @@
     <script src=".././static/js/welcome/welcome.js" type="application/javascript"></script>
     <script src=".././static/js/clock/clock.js" type="application/javascript"></script>
     <script src=".././static/js/common/common.js" type="application/javascript"></script>
+    <script src=".././static/js/common/common.js" type="application/javascript"></script>
     <script src=".././static/js/common/advice.js" type="application/javascript"></script>
+    
+    <script src="../static/js/common/weather.js"></script>
+    <script src="../static/js/common/search.js"></script>
+    <script src="../static/js/common/dday.js"></script>
+    
     <script src=".././static/js/favorites/favorites.js" type="application/javascript"></script>
     <script src=".././static/js/todolist/todolist.js" type="application/javascript"></script>
+    
 </body>
 </html>
