@@ -94,3 +94,15 @@
     cursor: pointer;
     font-size: 12px;
 }
+
+.todolabel{
+    width: 70%;
+    color: white;
+    text-align: left;
+}
+.todolabelCheck{
+    width: 70%;
+    text-decoration:line-through;
+    color: gray;
+    text-align: left;
+}
