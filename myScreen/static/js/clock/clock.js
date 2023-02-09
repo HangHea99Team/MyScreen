@@ -1,5 +1,4 @@
-window.onload = function () {
-  const clock = document.getElementById("clock")
+  let clock = document.getElementById("clock")
 
   function getClock() {
     const date = new Date();
@@ -11,7 +10,8 @@ window.onload = function () {
 
   getClock();
   setInterval(getClock, 1000);
-}
+
+  
 
 
 //setTimeout(sayHello,5000);
