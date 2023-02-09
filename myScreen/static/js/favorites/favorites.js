@@ -23,8 +23,13 @@ function saveLink() {
 
             // 로컬 스토리지 저장
             if (Boolean(itemStorage) && itemStorage.length > 0) {
-                itemObject.index = itemStorage.length;
+
+                // itemObject.index = itemStorage.length + 1;
+                debugger;
+                let indexList = itemStorage.map(item => item.index)
+                itemObject.index = Math.max(...indexList) + 1;
                 itemStorage.push(itemObject)
+
                 localStorage.setItem('favoritesLinks', JSON.stringify(itemStorage))
             } else {
                 itemObject.index = 0;
@@ -43,7 +48,21 @@ function saveLink() {
             </li>`
 
             $('#favorites_list').append(temp_html);
+
+            // writeLink(itemObject);
+
             $('#favorites_addUrl').val(null);
+        }
+    })
+}
+
+function writeLink(obj) {
+    $.ajax({
+        type: 'POST',
+        url: '/writeLink',
+        data: {title: obj.title, image: obj.image, desc: obj.desc, link: obj.link, index: obj.index},
+        success: function (response) {
+            alert(response['msg'])
         }
     })
 }
@@ -52,11 +71,13 @@ function goLink(url) {
     window.open(String(url))
 }
 
-function drawLinks(){
+function drawLinks() {
     let itemStorage = JSON.parse(localStorage.getItem('favoritesLinks'))
 
     if (Boolean(itemStorage) && itemStorage.length > 0) {
-        for(let i = 0 ; i < itemStorage.length ; i++){
+        console.log('성공')
+
+        for (let i = 0; i < itemStorage.length; i++) {
             let item = itemStorage[i];
 
             let temp_html = `
@@ -77,16 +98,16 @@ function drawLinks(){
     }
 }
 
-function showFavoritesLinks(){
+function showFavoritesLinks() {
     document.getElementById('favorites_list_wrap').classList.toggle('d-none')
 }
 
-function removeLink(index, elem){
+function removeLink(index, elem) {
     elem.parentElement.remove();
     let itemStorage = JSON.parse(localStorage.getItem('favoritesLinks')).filter(item => item.index != index);
-    localStorage.setItem('favoritesLinks',JSON.stringify(itemStorage))
+    localStorage.setItem('favoritesLinks', JSON.stringify(itemStorage))
 
-    if(JSON.parse(localStorage.getItem('favoritesLinks')).length == 0){
+    if (JSON.parse(localStorage.getItem('favoritesLinks')).length == 0) {
         localStorage.removeItem('favoritesLinks');
     }
 
@@ -94,6 +115,6 @@ function removeLink(index, elem){
     drawLinks();
 }
 
-window.onload = function(){
+window.addEventListener('load', function () {
     drawLinks();
-}
+});
