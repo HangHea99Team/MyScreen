@@ -68,9 +68,9 @@ function todo_check(checkbox,index){
 
     if (checkbox && label) {
         if (checkbox.checked) {
-            el.classList.replace('todolabelCheck')
+            el.classList.replace('todolabel','todolabelCheck')
         } else {
-            el.classList.replace('todolabel')
+            el.classList.replace('todolabelCheck','todolabel')
         }
 
     }
