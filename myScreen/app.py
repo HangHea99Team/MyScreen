@@ -2,6 +2,7 @@ import requests
 from flask import Flask, render_template, request, jsonify
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
+# 준영님 코드
 import certifi
 
 import dns.resolver
@@ -12,10 +13,15 @@ dns.resolver.default_resolver.nameservers=['8.8.8.8'] # this is a google public 
 ca = certifi.where()
 client = MongoClient('mongodb+srv://ryu:junyeong@cluster0.mr8szun.mongodb.net/Cluster0?retryWrites=true&w=majority', tlsCAFile =ca)
 db=client.dbsparta
+app = Flask(__name__)
+
 # mongo DB database 생성 후 클러스터 url 입력
 # client = MongoClient('')
 # db = client.dbsparta
-app = Flask(__name__)
+
+# client = MongoClient('mongodb+srv://test:sparta@cluster0.irxe3mh.mongodb.net/?retryWrites=true&w=majority')
+# db = client.myscreen
+
 
 @app.route('/')
 def home():
@@ -71,12 +77,28 @@ def favorites():
         'link': link
     }
 
-    return jsonify({'item':doc, 'msg':'크롤링 완료'})
+    return jsonify({'item': doc, 'msg': '저장 및 크롤링 완료'})
 
-# @app.route("/", methods=["GET"])
-# def movie_get():
-#     movie_list = list(db.movies.find({}, {'_id': False}))
-#     return jsonify({'movies':movie_list})
+
+@app.route('/writeLink', methods=["POST"])
+def writeLink():
+    title = request.form['title']
+    image = request.form['image']
+    link = request.form['link']
+    desc = request.form['desc']
+    index = request.form['index']
+
+    doc = {
+        'title': title,
+        'image': image,
+        'link': link,
+        'desc': desc,
+        'index': index
+    }
+
+    db.favorites.insert_one(doc)
+
+    return jsonify({'msg': 'success'})
 
 # port 는 자신이 사용할 port 지정
 if __name__ == '__main__':
