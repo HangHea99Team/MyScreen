@@ -1,11 +1,26 @@
 function showTodo() {
-
     document.getElementById('todo_wrap').classList.toggle('d-none')
+
+    let local_data = JSON.parse(localStorage.getItem('todo'))
+    console.log(local_data)
+    for (let i = 0; i < local_data.length; i++) {
+        let index_name = local_data[i]
+        let index = index_name['index']
+        let temp_html = `<li class="todo-item" >
+                            <div class="todo-goal">
+                                <input onclick="todo_check(this, ${index})" id = 'todo_checkbox${index}' class = 'todo_checkbox'  type="checkbox"  />
+                                <label class="todolabel" id = 'todolabel${index}'  for="todo_checkbox">${local_data[i]['todo']}</label>
+                                <button onclick="delete_todo(${index.index}, this)" id = 'todo_delete' class="unset_style todo-goal-remove" >🗑</button>
+                            </div>
+                        </li>`
+
+        $('#todo-itemList').append(temp_html)
+    }
 }
 function save_comment(e) {
     let todos = e.target.value;
 
-    if (e.key == 'Enter') {
+    if (e.key === 'Enter') {
         e.preventDefault();
         $('#todo-itemList').empty()
 
