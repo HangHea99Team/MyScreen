@@ -10,111 +10,139 @@
     <link rel="stylesheet" type="text/css" href=".././static/css/favorites/favorites.css">
     <link rel="stylesheet" type="text/css" href=".././static/css/common/advice.css">
     <link rel="stylesheet" type="text/css" href=".././static/css/todolist/todolist.css">
-    
+    <link rel="stylesheet" type="text/css" href=".././static/css/sign/sign.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-          
+
     <link rel="stylesheet" href="../static/css/common/weather.css">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     <script src=".././static/js/common/common.js" type="application/javascript"></script>
-    
+
     <script src="../static/js/common/weather.js"></script>
     <script src="../static/js/common/search.js"></script>
     <script src="../static/js/common/dday.js"></script>
-    
+
     <script src=".././static/js/common/advice.js" type="application/javascript"></script>
     <script src=".././static/js/favorites/favorites.js" type="application/javascript"></script>
     <script src=".././static/js/todolist/todolist.js" type="application/javascript"></script>
 </head>
 <body>
-    <div class="loading"></div>
-    <header class="header_wrap" style="margin-top: 50px; margin-left: 20px;">
-        <!-- 헤더 - 페이지 머리 -->
-        <!-- <div id="dDay_container" class="dDay_container">
-        </div> -->
-        <div id="search_container">
-            <img src="../static/img/logo.webp" alt="항해99">
-            <h3 class="dDay"></h3>
-            <button class="search_toggle visible" type="button">검색</button>
-            <form id="myForm" class="myForm" onsubmit="return false;">
-                <input id="keyword" class="keyword" type="text">
-                <button onclick="hey()" class="search-btn" type="button" class="btn btn-outline-success">클릭</button>
-                <select id="engine" class="search-select" name="WhichSearch">
-                    <option id="google" value="google">Google</option>
-                    <option id="naver" value="naver">Naver</option>
-                </select>
-            </form>
-        </div><br>
-        <div id="weather_container"> 
-            <span></span><br>
-            <span></span>
-        </div>
-        머리
-        <div class="favorites_menu">
-            <button class="unset_style favorites_btn" onclick="showFavoritesLinks()">
-                즐겨찾기 메뉴
-            </button>
-            <div id="favorites_list_wrap" class="favorites_list_wrap d-none">
-                <ul class="favorites_add_wrap">
-                    <input class="favorites_input_url" id="favorites_addUrl"/>
-                    <button class="unset_style favorites_add_btn" onclick="saveLink()">
-                        +
-                    </button>
-                </ul>
-                <ul id="favorites_list" class="favorites_list">
-                </ul>
-            </div>
-        </div>
-    </header>
-    <section class="section_wrap">
-        <!-- 섹션 - 페이지 중앙 -->
-        <div class="clock_wrap">
-            <p id="clock">00:00:00</p>
-        </div>
-        <div class="welcome_wrap">
-            <p class="welcome">HAVE A NICE DAY!</p>
-        </div>
-        <form class="name_box hidden">
-            <input class="name_box2" type="text">
+<div class="loading"></div>
+<header class="header_wrap" style="margin-top: 50px; margin-left: 20px;">
+    <!-- 헤더 - 페이지 머리 -->
+    <!-- <div id="dDay_container" class="dDay_container">
+    </div> -->
+    <div id="search_container">
+        <img src="../static/img/logo.webp" alt="항해99">
+        <h3 class="dDay"></h3>
+        <button class="search_toggle visible" type="button">검색</button>
+        <form id="myForm" class="myForm" onsubmit="return false;">
+            <input id="keyword" class="keyword" type="text">
+            <button onclick="hey()" class="search-btn" type="button" class="btn btn-outline-success">클릭</button>
+            <select id="engine" class="search-select" name="WhichSearch">
+                <option id="google" value="google">Google</option>
+                <option id="naver" value="naver">Naver</option>
+            </select>
         </form>
-        <h1 class="name_showing"></h1>
-
-
-    </section>
-    <footer class="footer_wrap">
-        <!-- 푸터 - 페이지 하단 -->
-        <!-- 랜덤 명언 완료-->
-        <div class = advice_wrap>
-                <div>
-                    <h1 class = advice-txt id="advice-text"></h1>
-                </div>
+    </div>
+    <br>
+    <div id="weather_container">
+        <span></span><br>
+        <span></span>
+    </div>
+    <div class="favorites_menu">
+        <button class="unset_style favorites_btn" onclick="showFavoritesLinks()">
+            즐겨찾기 메뉴
+        </button>
+        <div id="favorites_list_wrap" class="favorites_list_wrap d-none">
+            <ul class="favorites_add_wrap">
+                <input class="favorites_input_url" id="favorites_addUrl"/>
+                <button class="unset_style favorites_add_btn" onclick="saveLink()">
+                    +
+                </button>
+            </ul>
+            <ul id="favorites_list" class="favorites_list">
+            </ul>
         </div>
-        <!-- 투두리스트-->
-        <div class="todo-menu">
-            <button class="unset_style todo-showBtn" onclick="showTodo()">
-                Todo
-            </button>
-            <div class="todo-wrap d-none" id="todo_wrap">
-                <h3 class="todo-title">📙 To Do List</h3>
-                <ul class="todo-itemList" id='todo-itemList'>
-                </ul>
-                <div class="todo-inputBox">
-                    <input placeholder="Write Your To-do" type="text" class="unset_style beauty-input"
-                           id="floatingInput">
-                </div>
+    </div>
+<!--    <div class="login-referral-wrap">-->
+<!--        <img src="../static/img/rtani.gif" loop=infinite/>-->
+<!--        <h3>-->
+<!--            <button class="unset_style sign-pop-btn" onclick="singPopShow()">로그인</button>-->
+<!--            하시고 더 많은 기능을 사용해보세요!-->
+<!--        </h3>-->
+<!--        <img src="../static/img/rtani.gif" loop=infinite/>-->
+<!--    </div>-->
+<!--    <div id="sign-popup" class="sign-popup-wrap">-->
+<!--        <div class="sign-popup-container">-->
+<!--            <div class="sign-popup-content">-->
+<!--                <button class="unset_style exit-sign-pop-btn" onclick="signPopHide()">-->
+<!--                    ×-->
+<!--                </button>-->
+<!--                <form action="javascript:return;">-->
+<!--                    <input/>-->
+<!--                    <input/>-->
+<!--                    <input/>-->
+<!--                    <button>-->
+<!--                        회원가입-->
+<!--                    </button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</header>
+<section class="section_wrap">
+    <!-- 섹션 - 페이지 중앙 -->
+    <div class="clock_wrap">
+        <p id="clock">00:00:00</p>
+    </div>
+    <div class="welcome_wrap">
+        <p class="welcome">HAVE A NICE DAY!</p>
+    </div>
+    <form class="name_box hidden">
+        <input class="name_box2" type="text">
+    </form>
+    <h1 class="name_showing"></h1>
+
+</section>
+<footer class="footer_wrap">
+    <!-- 푸터 - 페이지 하단 -->
+    <!-- 랜덤 명언 완료-->
+    <div class=advice_wrap>
+        <div>
+            <h1 class=advice-txt id="advice-text"></h1>
+        </div>
+    </div>
+    <!-- 투두리스트-->
+    <div class="todo-menu">
+        <button class="unset_style todo-showBtn" onclick="showTodo()">
+            Todo
+        </button>
+        <div class="todo-wrap d-none" id="todo_wrap">
+            <h3 class="todo-title">📙 To Do List</h3>
+            <ul class="todo-itemList" id='todo-itemList'>
+            </ul>
+            <div class="todo-inputBox">
+                <input placeholder="Write Your To-do" type="text" class="unset_style beauty-input"
+                       id="floatingInput">
             </div>
         </div>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-    <script src=".././static/js/welcome/welcome.js" type="application/javascript"></script>
-    <script src=".././static/js/clock/clock.js" type="application/javascript"></script>
-    <script src=".././static/js/common/common.js" type="application/javascript"></script>
+    </div>
+</footer>
+<script src=".././static/js/common/unsplash.js" type="application/javascript"></script>
+<script src=".././static/js/auth/signup.js" type="application/javascript"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src=".././static/js/welcome/welcome.js" type="application/javascript"></script>
+<script src=".././static/js/clock/clock.js" type="application/javascript"></script>
+<script src=".././static/js/common/common.js" type="application/javascript"></script>
 </body>
 </html>

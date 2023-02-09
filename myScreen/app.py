@@ -8,9 +8,14 @@ from pymongo import MongoClient
 # db = client.dbsparta
 app = Flask(__name__)
 
+client = MongoClient('mongodb+srv://test:sparta@cluster0.irxe3mh.mongodb.net/?retryWrites=true&w=majority')
+db = client.myscreen
+
+
 @app.route('/')
 def home():
     return render_template('index.html')
+
 
 @app.route('/favorites', methods=["POST"])
 def favorites():
@@ -36,12 +41,28 @@ def favorites():
         'link': link
     }
 
-    return jsonify({'item':doc, 'msg':'크롤링 완료'})
+    return jsonify({'item': doc, 'msg': '저장 및 크롤링 완료'})
 
-# @app.route("/", methods=["GET"])
-# def movie_get():
-#     movie_list = list(db.movies.find({}, {'_id': False}))
-#     return jsonify({'movies':movie_list})
+
+@app.route('/writeLink', methods=["POST"])
+def writeLink():
+    title = request.form['title']
+    image = request.form['image']
+    link = request.form['link']
+    desc = request.form['desc']
+    index = request.form['index']
+
+    doc = {
+        'title': title,
+        'image': image,
+        'link': link,
+        'desc': desc,
+        'index': index
+    }
+
+    db.favorites.insert_one(doc)
+
+    return jsonify({'msg': 'success'})
 
 # port 는 자신이 사용할 port 지정
 if __name__ == '__main__':

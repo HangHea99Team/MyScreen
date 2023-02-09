@@ -1,0 +1,81 @@
+.login-referral-wrap {
+    position: absolute;
+    bottom: -140px;
+    left: 50%;
+    transform: translate(-50%, 40%);
+    display: flex;
+    width: 500px;
+    border: 1px solid #FFFFFF;
+    border-radius: 14px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.30), 0 4px 12px rgba(0, 0, 0, 0.22);
+    font-weight: lighter;
+}
+
+.login-referral-wrap img {
+    width: 40px;
+}
+
+.login-referral-wrap h3 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 18px;
+}
+
+.sign-pop-btn {
+    cursor: pointer;
+    font-weight: bold;
+    color: #ff2b2b;
+}
+
+.sign-pop-btn:hover {
+    color: #FFFFFF;
+}
+
+.sign-popup-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.exit-sign-pop-btn {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+    background: #333333;
+    color: #FFFFFF;
+}
+
+.sign-popup-container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: 400px;
+    height: 600px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.30), 0 4px 12px rgba(0, 0, 0, 0.22);
+    color: #333333;
+    padding: 20px;
+}
+
+.sign-popup-content {
+    position: relative;
+    display: flex;
+    height: 100%;
+    padding: 80px 0px 40px 0px;
+}

@@ -15,6 +15,6 @@ function onGeopass(position){
         });
 }
 function onGeoError(){
-    alert("날씨를 나타낼 수 없습니다.");
+    //alert("날씨를 나타낼 수 없습니다.");
 }
 navigator.geolocation.getCurrentPosition(onGeopass, onGeoError);
