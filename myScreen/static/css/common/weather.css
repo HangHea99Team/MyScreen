@@ -1,15 +1,38 @@
-.header_wrap{
+.header_wrap {
+    height: 150px;
+    margin-left: 10px;
     display: flex;
     justify-content: space-between;
+
 }
 
-.dDay_container{
-    width: 200px;
-    height: 100px;
+.search_toggle{
+    background: none;
+    font-weight: bold;
+    font-size: large; 
+    color:white;
 }
 
+.logo1{
+    margin-bottom: 15px;
+}
 
-button {
-    color: white;
-    background-color: black;
+#weather_container{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+
+.headContainer-1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.dDay {
+    margin-top: 40px;
+}
+
+.weather_menu{
+    margin-bottom: 10px;
 }
